@@ -8,13 +8,9 @@ var digitalClock = {
 }
 
 function censor(word, string){
-  return string.replace(word, 'BLEEP');
+  var match = new RegExp(word, 'gi');
+  return string.replace(match, 'BLEEP');
 }
 
-function violenceCensor(){
-
-}
-
-function drugsCensor(){
-  
-}
+const violenceCensor = censor.bind(null, 'violence');
+const drugsCensor = censor.bind(null, 'drugs');
